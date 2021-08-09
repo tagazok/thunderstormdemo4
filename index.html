@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Vanilla JavaScript App</title>
-  </head>
 
-  <body>
-    <main>
-      <h1>Vanilla JavaScript App</h1>
-      <p>Loading content from the API: <b id="message"></b></b></p>
-    </main>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>TODO</title>
+</head>
 
-  <script>
-    (async function () {
-      let response = await fetch(`api/message`);
-      let message = await response.json();
+<body>
+    <nav>
+        <div id="username"></div>
+        <a href="/.auth/logout?post_logout_redirect_uri=/login.html">Log out</a>
+    </nav>
+    <div class="container">
+        <header>
+            <span class="heading">My TODO</span>
+        </header>
+        <section class="tasks">
+            <ul id="tasksList" class="task-list">
+                <div id="empty">No task 😔</div>
+            </ul>
+        </section>
+        <footer>
+            <form id="newTaskForm">
+                <input type="text" id="new_task_input" placeholder="New Task" value="" />
+                <button type="submit">Add</button>
+            </form>
+        </footer>
+    </div>
 
-      document.querySelector("#message").innerHTML = message.text
-    })();
-    
-  </script>
+    <script src="app.js"></script>
+</body>
+
 </html>
